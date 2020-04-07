@@ -9,7 +9,11 @@ export default class Player {
     this._cards = cards;
   }
 
-  get cards() {
+  get cards(): Card[] {
     return this._cards;
+  }
+
+  get name(): string {
+    return this._name;
   }
 }
