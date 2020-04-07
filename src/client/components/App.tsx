@@ -11,7 +11,7 @@ function App() {
       <header className="App-header">
         <p>Phase 10 Game</p>
       </header>
-      <body className="App-body">
+      <div className="App-div">
         <button className="buttons">Shuffle Deck</button>
         <button className="buttons" onClick={() => setCardIndex(onDrawCard())}>
           Draw Card
@@ -20,7 +20,7 @@ function App() {
           <p>Card</p>
           {card}
         </div>
-      </body>
+      </div>{' '}
     </div>
   );
 }

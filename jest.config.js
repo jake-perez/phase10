@@ -8,7 +8,11 @@ module.exports = {
   "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(js?|ts?)$",
   "collectCoverageFrom": [
     "**/*.ts",
+    "!**/*.d.ts",
+    "!src/client/serviceWorker.ts",
+    "!src/client/setupTests.ts",
   ],
+  // "modulePathIgnorePatterns": ["**/*.d.ts"],
   "coverageThreshold": {
     "global": {
       "branches": 100,
