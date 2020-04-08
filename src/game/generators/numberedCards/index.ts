@@ -1,4 +1,4 @@
-import ICard from '../../interfaces/ICard';
+import Card from '../../interfaces/Card';
 
 const RED: string = 'RED';
 const YELLOW: string = 'YELLOW';
@@ -13,7 +13,7 @@ const TEN: number = 10;
 
 const NUMBER_TYPE: string = 'NUMBER';
 
-const generateCard = (value: number, lossValue: number, type: string, color: string): ICard => {
+const generateCard = (value: number, lossValue: number, type: string, color: string): Card => {
   return {
     color,
     value,
@@ -22,28 +22,28 @@ const generateCard = (value: number, lossValue: number, type: string, color: str
   };
 };
 
-const generateLowCards = (color: string): ICard[] => {
+const generateLowCards = (color: string): Card[] => {
   return new Array(NINE)
     .fill(ONE)
     .map((_: any, index: number) => generateCard(index + ONE, FIVE, NUMBER_TYPE, color));
 };
 
-const generateHighCards = (color: string): ICard[] => {
+const generateHighCards = (color: string): Card[] => {
   return new Array(THREE)
     .fill(ONE)
     .map((_, index: number) => generateCard(index + TEN, TEN, NUMBER_TYPE, color));
 };
 
-const generateCardsByColor = (color: string): ICard[] => {
+const generateCardsByColor = (color: string): Card[] => {
   return [...generateLowCards(color), ...generateHighCards(color)];
 };
 
-const RED_CARDS: ICard[] = [...generateCardsByColor(RED), ...generateCardsByColor(RED)];
-const YELLOW_CARDS: ICard[] = [...generateCardsByColor(YELLOW), ...generateCardsByColor(YELLOW)];
-const BLUE_CARDS: ICard[] = [...generateCardsByColor(BLUE), ...generateCardsByColor(BLUE)];
-const GREEN_CARDS: ICard[] = [...generateCardsByColor(GREEN), ...generateCardsByColor(GREEN)];
+const RED_CARDS: Card[] = [...generateCardsByColor(RED), ...generateCardsByColor(RED)];
+const YELLOW_CARDS: Card[] = [...generateCardsByColor(YELLOW), ...generateCardsByColor(YELLOW)];
+const BLUE_CARDS: Card[] = [...generateCardsByColor(BLUE), ...generateCardsByColor(BLUE)];
+const GREEN_CARDS: Card[] = [...generateCardsByColor(GREEN), ...generateCardsByColor(GREEN)];
 
-const NUMBERED_CARDS: ICard[] = [...RED_CARDS, ...YELLOW_CARDS, ...BLUE_CARDS, ...GREEN_CARDS];
+const NUMBERED_CARDS: Card[] = [...RED_CARDS, ...YELLOW_CARDS, ...BLUE_CARDS, ...GREEN_CARDS];
 
 export {
   generateCard,

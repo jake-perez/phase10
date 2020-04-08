@@ -1,4 +1,4 @@
-import Card from '../../interfaces/ICard';
+import Card from '../../interfaces/Card';
 
 export default class Player {
   public _name: string = `Player_${Math.random() * 1000}`; // Random Name unless set

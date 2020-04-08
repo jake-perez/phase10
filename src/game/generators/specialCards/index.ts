@@ -1,13 +1,13 @@
-import ICard from '../../interfaces/ICard';
+import Card from '../../interfaces/Card';
 
-const WildCard: ICard = {
+const WildCard: Card = {
   color: null,
   value: null,
   lossValue: 25,
   type: 'WILD',
 };
 
-const SkipCard: ICard = {
+const SkipCard: Card = {
   color: null,
   value: null,
   lossValue: 15,
@@ -19,7 +19,7 @@ const SkipCard: ICard = {
  * 4 - Skip Cards (Technically they are blue, but currently won't
  *                 be using color, null for now)
  */
-const SPECIAL_CARDS: ICard[] = [
+const SPECIAL_CARDS: Card[] = [
   WildCard,
   WildCard,
   WildCard,
