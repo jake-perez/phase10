@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "interface-name": [
+      true,
+      "never-prefix"
+    ],
+    "object-literal-sort-keys": false,
+    "prefer-for-of": false
+  },
+  "linterOptions": {
+    "exclude": [
+      "node_modules",
+      "**/*.test.ts",
+      "**/*.d.ts",
+      "src/client/serviceWorker.ts",
+      "src/client/setupTests.ts"
+    ]
+  }
+}

@@ -1,10 +1,10 @@
 import { Card } from '../../interfaces/Card';
 
 export default class Player {
-  _name: string = `Player_${Math.random() * 1000}`; // Random Name unless set
-  _cards: Card[];
-  _currentPhase: number = 1; // Initialized to 1
-  _currentLossCount: number = 0; // Initialized to 0
+  public _name: string = `Player_${Math.random() * 1000}`; // Random Name unless set
+  public _cards: Card[];
+  public _currentPhase: number = 1; // Initialized to 1
+  public _currentLossCount: number = 0; // Initialized to 0
 
   constructor(name: string, cards: Card[] = []) {
     this._name = name || this._name;

@@ -12,7 +12,6 @@ module.exports = {
     "!src/client/serviceWorker.ts",
     "!src/client/setupTests.ts",
   ],
-  // "modulePathIgnorePatterns": ["**/*.d.ts"],
   "coverageThreshold": {
     "global": {
       "branches": 100,

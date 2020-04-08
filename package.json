@@ -21,7 +21,21 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "ts-jest": "^25.3.1",
-    "typescript": "~3.7.2"
+    "typescript": "~3.7.2",
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-numeric-separator": "^7.7.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-typescript": "^7.7.4",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1",
+    "stop-only": "^3.1.0",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,6 +44,8 @@
     "test:watch": "npx jest --watch",
     "test:ci": "npx jest --collect-coverage",
     "test:tsx": "react-scripts test",
+    "lint": "npx tslint -p tsconfig.json",
+    "lint:fix": "npx tslint -p tsconfig.json --fix",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
