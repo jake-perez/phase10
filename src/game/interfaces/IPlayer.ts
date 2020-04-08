@@ -1,9 +1,9 @@
-import { Card } from './Card';
+import ICard from './ICard';
 
-export default interface Player {
+export default interface IPlayer {
   name: string;
   totalLossCount: number;
   currentPhase: number;
   isPhaseComplete: boolean;
-  cards: Card[];
+  cards: ICard[];
 }

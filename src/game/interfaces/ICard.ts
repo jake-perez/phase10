@@ -1,4 +1,4 @@
-export interface Card {
+export default interface ICard {
   color: string | null;
   value: number | null;
   lossValue: number;

@@ -1,9 +1,9 @@
 import { WildCard, SkipCard, SPECIAL_CARDS } from '..';
-import { Card } from '../../../interfaces/Card';
+import ICard from '../../../interfaces/ICard';
 
 describe('Special Cards', () => {
   it('should make sure wildcard has correct values', () => {
-    const wildCard: Card = WildCard;
+    const wildCard: ICard = WildCard;
 
     expect(wildCard).toEqual({
       color: null,
@@ -14,7 +14,7 @@ describe('Special Cards', () => {
   });
 
   it('should make sure skipcards has correct values', () => {
-    const skipCard: Card = SkipCard;
+    const skipCard: ICard = SkipCard;
 
     expect(skipCard).toEqual({
       color: null,
@@ -25,7 +25,7 @@ describe('Special Cards', () => {
   });
 
   it('should have 8 wilds and 4 skips', () => {
-    const specialCards: Card[] = SPECIAL_CARDS;
+    const specialCards: ICard[] = SPECIAL_CARDS;
 
     expect(specialCards.filter((e) => e.type === 'WILD')).toHaveLength(8);
     expect(specialCards.filter((e) => e.type === 'SKIP')).toHaveLength(4);
