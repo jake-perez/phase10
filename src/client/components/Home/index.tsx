@@ -1,34 +1,88 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
+import Deck from '../../../game/domain/Deck';
+import Card from '../../../game/interfaces/Card';
+import redCardImage from '../../images/cards/red-three-card.png';
 import './index.scss';
 
-const deck: number[] = [3, 5, 2, 4, 6];
+const defaultDeck: Deck = new Deck();
 
-function Home() {
-  const [cardIndex, setCardIndex] = useState(0);
-  const card = deck[cardIndex];
+export default class Home extends Component {
+  state = {
+    deck: defaultDeck,
+    player1Cards: [],
+    player2Cards: [],
+    card: null,
+  };
 
-  return (
-    <div className="Home">
-      <header className="Home-header">
-        <p>Phase 10 Game</p>
-      </header>
-      <div className="Home-div">
-        <button className="buttons">Shuffle Deck</button>
-        <button className="buttons" onClick={() => setCardIndex(onDrawCard())}>
-          Draw Card
-        </button>
-        <div>
-          <p>Card</p>
-          {card}
-        </div>
-      </div>{' '}
-    </div>
-  );
+  componentDidMount() {
+    const { deck } = this.state;
+    this.setState({
+      player1Cards: getTenCards(deck),
+      player2Cards: getTenCards(deck),
+      card: deck.drawCard,
+    });
+  }
+
+  drawCard = () => {
+    this.setState({
+      card: this.state.deck.drawCard,
+    });
+  };
+
+  newDeck = () => {
+    const newDeck: Deck = new Deck();
+    this.setState({
+      deck: newDeck,
+    });
+  };
+
+  render() {
+    const { player1Cards, player2Cards, card, deck } = this.state;
+    console.log('deck', deck);
+    return (
+      <div className="Home">
+        <header className="Home-header">
+          <p>Phase 10 Game</p>
+        </header>
+        <div className="Home-body">
+          <button className="buttons" onClick={this.newDeck}>
+            New Deck
+          </button>
+          <button className="buttons" onClick={this.drawCard}>
+            Draw Card
+          </button>
+          <div>
+            <p>Card</p>
+            {JSON.stringify(card, null, 2)}
+          </div>
+          <div>
+            <p>Player 1</p>
+            {player1Cards && JSON.stringify(player1Cards, null, 2)}
+          </div>
+          <div>
+            <p>Player 2</p>
+            {player2Cards && JSON.stringify(player2Cards, null, 2)}
+          </div>
+          <div>
+            <img className="card-image" src={redCardImage} alt={'nothing here buddy'} />
+          </div>
+        </div>{' '}
+      </div>
+    );
+  }
 }
 
-const onDrawCard = () => {
-  const index = Math.floor(Math.random() * 4) + 1;
-  return index;
+const getTenCards = (deck: Deck): any[] | null => {
+  const cards: Card[] = [];
+  for (let i = 0; i < 10; i++) {
+    const card: null | Card = deck.drawCard;
+    if (!card) {
+      return null;
+    } else {
+      cards.push(deck.drawCard!);
+    }
+  }
+  return cards.map((card: Card) => {
+    return [card.type, card.value, card.color];
+  });
 };
-
-export default Home;

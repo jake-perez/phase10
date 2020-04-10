@@ -1,8 +1,8 @@
-import FULL_DECK from '../../generators/deck';
+import { generateNewDeck } from '../../generators/deck';
 import Card from '../../interfaces/Card';
 
 export default class Deck {
-  public cards: Card[] = FULL_DECK;
+  public cards: Card[] = generateNewDeck();
 
   constructor() {
     this.shuffle();
