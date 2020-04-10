@@ -7,14 +7,14 @@ import './index.scss';
 const defaultDeck: Deck = new Deck();
 
 export default class Home extends Component {
-  state = {
+  public state = {
     deck: defaultDeck,
     player1Cards: [],
     player2Cards: [],
     card: null,
   };
 
-  componentDidMount() {
+  public componentDidMount() {
     const { deck } = this.state;
     this.setState({
       player1Cards: getTenCards(deck),
@@ -23,22 +23,22 @@ export default class Home extends Component {
     });
   }
 
-  drawCard = () => {
+  public drawCard = () => {
     this.setState({
       card: this.state.deck.drawCard,
     });
   };
 
-  newDeck = () => {
+  public newDeck = () => {
     const newDeck: Deck = new Deck();
     this.setState({
       deck: newDeck,
     });
   };
 
-  render() {
-    const { player1Cards, player2Cards, card, deck } = this.state;
-    console.log('deck', deck);
+  public render() {
+    const { player1Cards, player2Cards, card } = this.state;
+    // console.log('deck', deck);
     return (
       <div className="Home">
         <header className="Home-header">
