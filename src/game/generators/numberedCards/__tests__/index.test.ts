@@ -26,13 +26,14 @@ describe('Numbered Cards', () => {
       lossValue: 5,
       type: 'NUMBER',
       value: 1,
+      imageCardType: '',
     });
   });
 
   it('generate low cards', () => {
     const result = cards.generateLowCards('YELLOW');
 
-    expect(result).toEqual([
+    expect(result).toMatchObject([
       {
         color: 'YELLOW',
         lossValue: 5,
@@ -93,7 +94,7 @@ describe('Numbered Cards', () => {
   it('should generate high cards', () => {
     const result = cards.generateHighCards('GREEN');
 
-    expect(result).toEqual([
+    expect(result).toMatchObject([
       {
         color: 'GREEN',
         lossValue: 10,

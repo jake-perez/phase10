@@ -3,4 +3,5 @@ export default interface Card {
   value: number | null;
   lossValue: number;
   type: string;
+  imageCardType: string;
 }

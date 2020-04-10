@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Deck from '../../../game/domain/Deck';
 import Card from '../../../game/interfaces/Card';
-import redCardImage from '../../images/cards/red-three-card.png';
 import './index.scss';
 
 const defaultDeck: Deck = new Deck();
@@ -11,7 +10,7 @@ export default class Home extends Component {
     deck: defaultDeck,
     player1Cards: [],
     player2Cards: [],
-    card: null,
+    card: { imageCardType: '' },
   };
 
   public componentDidMount() {
@@ -33,12 +32,15 @@ export default class Home extends Component {
     const newDeck: Deck = new Deck();
     this.setState({
       deck: newDeck,
+      player1Cards: getTenCards(newDeck),
+      player2Cards: getTenCards(newDeck),
+      card: newDeck.drawCard,
     });
   };
 
   public render() {
     const { player1Cards, player2Cards, card } = this.state;
-    // console.log('deck', deck);
+
     return (
       <div className="Home">
         <header className="Home-header">
@@ -52,19 +54,42 @@ export default class Home extends Component {
             Draw Card
           </button>
           <div>
-            <p>Card</p>
-            {JSON.stringify(card, null, 2)}
+            <p>Drawn Card</p>
+            {card.imageCardType && (
+              <img
+                className="card-image"
+                src={require(`../../images/cards/${card.imageCardType}.png`)}
+                alt={'nothing here buddy'}
+              />
+            )}
           </div>
           <div>
             <p>Player 1</p>
-            {player1Cards && JSON.stringify(player1Cards, null, 2)}
+            {player1Cards &&
+              player1Cards.map((c: Card, i: number) => {
+                return (
+                  <img
+                    key={`${c.color}-${c.type}-${i}`}
+                    className="card-image"
+                    src={require(`../../images/cards/${c.imageCardType}.png`)}
+                    alt={'nothing here buddy'}
+                  />
+                );
+              })}
           </div>
           <div>
             <p>Player 2</p>
-            {player2Cards && JSON.stringify(player2Cards, null, 2)}
-          </div>
-          <div>
-            <img className="card-image" src={redCardImage} alt={'nothing here buddy'} />
+            {player2Cards &&
+              player2Cards.map((c: Card, i: number) => {
+                return (
+                  <img
+                    key={`${c.color}-${c.type}-${i}`}
+                    className="card-image"
+                    src={require(`../../images/cards/${c.imageCardType}.png`)}
+                    alt={'nothing here buddy'}
+                  />
+                );
+              })}
           </div>
         </div>{' '}
       </div>
@@ -82,7 +107,5 @@ const getTenCards = (deck: Deck): any[] | null => {
       cards.push(deck.drawCard!);
     }
   }
-  return cards.map((card: Card) => {
-    return [card.type, card.value, card.color];
-  });
+  return cards;
 };

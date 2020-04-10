@@ -4,36 +4,35 @@
 
 .Home-header {
   background-color: #87a2d6;
-  height: 10vh;
+  height: 5vh;
   display: flex;
   align-items: left;
   justify-content: left;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(2vmin);
   padding-left: 5%;
   color: white;
 }
 
 .Home-body {
   background-color: #6b83b1;
-  height: 90vh;
+  height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-
-  .buttons {
-    display: inline-block;
-    background-color: rgba(223, 223, 236, 0.801);
-  }
 }
 
+.buttons {
+  background-color: rgba(223, 223, 236, 0.801);
+  margin-top: 12px;
+}
 .Home-link {
   color: #61dafb;
 }
 
 .card-image {
-  height: 200px;
+  height: 170px;
   // width: 100px;
 }

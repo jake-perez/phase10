@@ -5,6 +5,7 @@ const WildCard: Card = {
   value: null,
   lossValue: 25,
   type: 'WILD',
+  imageCardType: 'wild-card',
 };
 
 const SkipCard: Card = {
@@ -12,6 +13,7 @@ const SkipCard: Card = {
   value: null,
   lossValue: 15,
   type: 'SKIP',
+  imageCardType: 'skip-card',
 };
 
 /**
