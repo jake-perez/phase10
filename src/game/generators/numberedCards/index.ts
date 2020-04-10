@@ -13,25 +13,49 @@ const TEN: number = 10;
 
 const NUMBER_TYPE: string = 'NUMBER';
 
+const LOW_CARD_STRINGS: string[] = [
+  'one',
+  'two',
+  'three',
+  'four',
+  'five',
+  'six',
+  'seven',
+  'eight',
+  'nine',
+];
+const HIGH_CARD_STRINGS: string[] = ['ten', 'eleven', 'twelve'];
+
 const generateCard = (value: number, lossValue: number, type: string, color: string): Card => {
   return {
     color,
     value,
     lossValue,
     type,
+    imageCardType: '',
   };
 };
 
-const generateLowCards = (color: string): Card[] => {
+const generateLowCards = (colorInput: string): Card[] => {
   return new Array(NINE)
     .fill(ONE)
-    .map((_: any, index: number) => generateCard(index + ONE, FIVE, NUMBER_TYPE, color));
+    .map((_: any, index: number) => generateCard(index + ONE, FIVE, NUMBER_TYPE, colorInput))
+    .map((c: any, i: number) => {
+      const { color } = c;
+      const imageCardType: string = `${color.toLowerCase()}-${LOW_CARD_STRINGS[i]}-card`;
+      return { ...c, imageCardType };
+    });
 };
 
-const generateHighCards = (color: string): Card[] => {
+const generateHighCards = (colorInput: string): Card[] => {
   return new Array(THREE)
     .fill(ONE)
-    .map((_, index: number) => generateCard(index + TEN, TEN, NUMBER_TYPE, color));
+    .map((_, index: number) => generateCard(index + TEN, TEN, NUMBER_TYPE, colorInput))
+    .map((c: any, i: number) => {
+      const { color } = c;
+      const imageCardType: string = `${color.toLowerCase()}-${HIGH_CARD_STRINGS[i]}-card`;
+      return { ...c, imageCardType };
+    });
 };
 
 const generateCardsByColor = (color: string): Card[] => {
