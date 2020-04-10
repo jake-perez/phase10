@@ -4,4 +4,10 @@ import SPECIAL_CARDS from '../specialCards';
 
 const FULL_DECK: Card[] = [...NUMBERED_CARDS, ...SPECIAL_CARDS];
 
-export default FULL_DECK;
+const generateNewDeck = (): Card[] => {
+  return [...FULL_DECK];
+};
+
+export { FULL_DECK, generateNewDeck };
+
+export default generateNewDeck;

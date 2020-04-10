@@ -1,19 +1,8 @@
-.App {
+.Home {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+.Home-header {
   background-color: #87a2d6;
   height: 10vh;
   display: flex;
@@ -24,7 +13,7 @@
   color: white;
 }
 
-.App-body {
+.Home-body {
   background-color: #6b83b1;
   height: 90vh;
   display: flex;
@@ -40,6 +29,11 @@
   }
 }
 
-.App-link {
+.Home-link {
   color: #61dafb;
+}
+
+.card-image {
+  height: 200px;
+  // width: 100px;
 }
